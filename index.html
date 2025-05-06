@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grac Instal | Usługi wodno-kanalizacyjne | Oleśnica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --primary-color: #0077b6; /* Deep blue */
+            --primary-dark: #023e8a;
+            --primary-light: #90e0ef;
+            --secondary-color: #ff9e00; /* Orange */
+            --secondary-dark: #ed8a00;
+            --text-color: #333333;
+            --text-light: #666666;
+            --light-color: #ffffff;
+            --dark-color: #121212;
+            --gray-light: #f8f9fa;
+            --gray-medium: #e9ecef;
+            --gray-dark: #495057;
+            --box-shadow: 0 10px 30px rgba(0, 119, 182, 0.1);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            --gradient-secondary: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--dark-color);
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background-color: transparent;
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled .nav-wrapper {
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.5)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--light-color), transparent);
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            padding: 2rem 0;
+            position: relative;
+            z-index: 3;
+        }
+
+        .hero-eyebrow {
+            color: var(--secondary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            font-weight: 800;
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            color: var(--primary-light);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--gray-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            width: 100%;
+        }
+
+        .btn i {
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            color: var(--light-color);
+        }
+
+        .btn-primary:after {
+            background: var(--gradient-primary);
+        }
+
+        .btn-primary:before {
+            background: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 119, 182, 0.2);
+        }
+
+        .btn-secondary {
+            color: var(--dark-color);
+            background: var(--light-color);
+        }
+
+        .btn-secondary:after {
+            background: var(--light-color);
+        }
+
+        .btn-secondary:before {
+            background: var(--gray-light);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Wave Section */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background: var(--light-color);
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%230077b6'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%230077b6'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%230077b6'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 7rem 0;
+            position: relative;
+        }
+
+        .section-bg-light {
+            background-color: var(--gray-light);
+        }
+
+        .section-bg-white {
+            background-color: var(--light-color);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-eyebrow {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-color);
+            position: relative;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.15);
+        }
+
+        .service-icon-wrapper {
+            width: 100%;
+            height: 200px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon-wrapper:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+        }
+
+        .service-icon {
+            font-size: 5rem;
+            color: var(--light-color);
+            position: relative;
+            z-index: 2;
+            transition: all 0.5s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .service-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .service-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: var(--secondary-dark);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--gray-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .about-text {
+            margin-bottom: 2.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .about-features {
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-icon-wrapper {
+            min-width: 60px;
+            height: 60px;
+            background: var(--primary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 119, 182, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon-wrapper {
+            background: var(--primary-color);
+            color: var(--light-color);
+            transform: translateY(-5px);
+        }
+
+        .feature-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .feature-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .about-image:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 119, 182, 0.2), rgba(0, 0, 0, 0.4));
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: var(--light-color);
+            position: relative;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 350px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-title {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-category {
+            color: var(--primary-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--gray-light);
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-color);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 5rem;
+            color: var(--primary-light);
+            font-family: 'Georgia', serif;
+            line-height: 1;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-color);
+        }
+
+        .author-role {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .testimonial-rating {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--gradient-primary);
+            position: relative;
+            color: var(--light-color);
+            overflow: hidden;
+        }
+
+        .cta:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            top: 0;
+            left: 0;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-color);
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        .btn-white:after {
+            background: var(--light-color);
+        }
+
+        .btn-white:before {
+            background: var(--gray-light);
+        }
+
+        .btn-outline {
+            color: var(--light-color);
+            border: 2px solid var(--light-color);
+            background: transparent;
+        }
+
+        .btn-outline:after {
+            background: transparent;
+        }
+
+        .btn-outline:before {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--light-color);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-color);
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--light-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.1);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-light);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover .contact-icon {
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .contact-card p, .contact-card a {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-color);
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            height: 450px;
+            width: 100%;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--gray-light);
+            padding: 6rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+            display: block;
+            font-family: 'Sora', sans-serif;
+        }
+
+        .footer-logo span {
+            color: var(--secondary-color);
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            max-width: 400px;
+            line-height: 1.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-heading {
+            font-size: 1.3rem;
+            color: var(--light-color);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .footer-heading:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+
+        .footer-contact i {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+            box-shadow: 0 5px 15px rgba(0, 119, 182, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--light-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 4rem 2rem;
+                gap: 2rem;
+                transition: all 0.5s ease;
+                z-index: 999;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .projects-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 5rem 0;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav-wrapper">
+                <a href="#" class="logo">Grac<span>Instal</span></a>
+                <button class="nav-toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links">
+                    <a href="#home">Strona główna</a>
+                    <a href="#about">O nas</a>
+                    <a href="#services">Usługi</a>
+                    <a href="#projects">Realizacje</a>
+                    <a href="#testimonials">Opinie</a>
+                    <a href="#contact">Kontakt</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-right">
+                <span class="hero-eyebrow">Profesjonalne Rozwiązania</span>
+                <h1 class="hero-title">Kompleksowe <span>Usługi</span> Wodno-Kanalizacyjne</h1>
+                <p class="hero-description">Doświadczony zespół specjalistów z wieloletnim doświadczeniem. Realizujemy projekty na terenie Oleśnicy i całego województwa dolnośląskiego.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-phone-alt"></i> Skontaktuj się
+                    </a>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-stream"></i> Nasze usługi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Nasze Specjalizacje</span>
+                <h2 class="section-title">Co Oferujemy</h2>
+                <p class="section-description">Firma Grac Instal świadczy kompleksowe usługi wodno-kanalizacyjne, zapewniając najwyższą jakość wykonania i zadowolenie klientów.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-water service-icon"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Instalacje Wodno-Kanalizacyjne</h3>
+                        <p class="service-description">Kompleksowe wykonanie, modernizacja i naprawa wszelkiego rodzaju instalacji wodno-kanalizacyjnych w budynkach mieszkalnych i komercyjnych.</p>
+                        <a href="#contact" class="service-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-toilet service-icon"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Montaż Urządzeń Sanitarnych</h3>
+                        <p class="service-description">Profesjonalny montaż, podłączenie i serwis urządzeń sanitarnych, takich jak umywalki, wanny, prysznice, toalety, bidety i inne.</p>
+                        <a href="#contact" class="service-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-tint-slash service-icon"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Udrażnianie Kanalizacji</h3>
+                        <p class="service-description">Skuteczne usuwanie wszelkich zatorów w instalacjach kanalizacyjnych z wykorzystaniem nowoczesnego sprzętu i technik czyszczenia.</p>
+                        <a href="#contact" class="service-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-home service-icon"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Przyłącza Wodno-Kanalizacyjne</h3>
+                        <p class="service-description">Kompleksowe wykonanie przyłączy wodociągowych i kanalizacyjnych do budynków mieszkalnych i komercyjnych, zgodnie z obowiązującymi normami.</p>
+                        <a href="#contact" class="service-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-wrench service-icon"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Naprawy Awarii</h3>
+                        <p class="service-description">Szybkie i skuteczne usuwanie awarii instalacji wodnych i kanalizacyjnych. Usługi dostępne 24/7 w nagłych przypadkach.</p>
+                        <a href="#contact" class="service-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-ruler-combined service-icon"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Projekty i Konsultacje</h3>
+                        <p class="service-description">Profesjonalne doradztwo, projektowanie i planowanie instalacji wodno-kanalizacyjnych, dopasowane do indywidualnych potrzeb klienta.</p>
+                        <a href="#contact" class="service-link">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" data-aos="fade-right">
+                    <h3>Poznaj Naszą Firmę</h3>
+                    <h2>Specjaliści w branży wodno-kanalizacyjnej z wieloletnim doświadczeniem</h2>
+                    <div class="about-text">
+                        <p>Firma Gracinstal Gracjan Kuś i Michał Wichtowski S.C. to zespół doświadczonych specjalistów, którzy od lat zajmują się kompleksowymi usługami w branży wodno-kanalizacyjnej. Nasza siedziba znajduje się w Oleśnicy, skąd realizujemy zlecenia na terenie całego województwa dolnośląskiego.</p>
+                        <p>Wysoki poziom wiedzy i kompetencji naszej firmy, wynikający z wieloletniej działalności w branży, zapewnia klientom spełnienie oczekiwań i profesjonalną realizację powierzonych projektów. Stawiamy na jakość, terminowość i satysfakcję klienta.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-value">15+</div>
+                            <div class="stat-label">Lat doświadczenia</div>
+                        </div>
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-value">500+</div>
+                            <div class="stat-label">Zadowolonych klientów</div>
+                        </div>
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-value">1000+</div>
+                            <div class="stat-label">Ukończonych projektów</div>
+                        </div>
+                    </div>
+                    <div class="about-features">
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Doświadczenie i wiedza</h4>
+                                <p>Nasz zespół posiada wieloletnie doświadczenie i niezbędne kwalifikacje w branży wodno-kanalizacyjnej.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Nowoczesny sprzęt</h4>
+                                <p>Wykorzystujemy najnowsze technologie i narzędzia, gwarantujące wysoką jakość wykonywanych usług.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Profesjonalne podejście</h4>
+                                <p>Każdy projekt traktujemy indywidualnie, dostosowując rozwiązania do potrzeb i oczekiwań klienta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="/api/placeholder/800/1000" alt="Zespół Grac Instal przy pracy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Nasze Realizacje</span>
+                <h2 class="section-title">Wybrane Projekty</h2>
+                <p class="section-description">Poznaj nasze dotychczasowe realizacje, które pokazują profesjonalizm i jakość naszych usług.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/api/placeholder/600/600" alt="Kompleksowa instalacja wodno-kanalizacyjna w domu jednorodzinnym" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Instalacja w domu jednorodzinnym</h3>
+                        <p class="project-category">Instalacja wodno-kanalizacyjna</p>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/api/placeholder/600/600" alt="Przyłącze kanalizacyjne do budynku mieszkalnego" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Przyłącze kanalizacyjne</h3>
+                        <p class="project-category">Przyłącza</p>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/api/placeholder/600/600" alt="Modernizacja instalacji w budynku wielorodzinnym" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Modernizacja instalacji</h3>
+                        <p class="project-category">Budynek wielorodzinny</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Opinie Klientów</span>
+                <h2 class="section-title">Co Mówią O Nas</h2>
+                <p class="section-description">Poznaj opinie naszych zadowolonych klientów, którzy skorzystali z naszych usług.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="testimonial-text">
+                        "Firma Grac Instal wykonała dla nas kompleksową instalację wodno-kanalizacyjną w nowym domu. Wszystko zostało zrobione terminowo, solidnie i zgodnie z ustaleniami. Profesjonalizm na najwyższym poziomie, polecam!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">K</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Krzysztof Lewandowski</h4>
+                            <p class="author-role">Oleśnica</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="testimonial-text">
+                        "Szybka i skuteczna naprawa awarii kanalizacyjnej. Panowie przyjechali w ciągu godziny od zgłoszenia, zdiagnozowali problem i naprawili usterkę. Pełen profesjonalizm i bardzo dobry kontakt. Z czystym sumieniem polecam usługi Grac Instal."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Anna Kowalczyk</h4>
+                            <p class="author-role">Wrocław</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <p class="testimonial-text">
+                        "Współpracowaliśmy z firmą Grac Instal przy wykonaniu przyłącza kanalizacyjnego do naszego budynku biurowego. Terminowość, dokładność i profesjonalne podejście do klienta to największe atuty tej firmy. Zdecydowanie polecam!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Michał Nowak</h4>
+                            <p class="author-role">Właściciel firmy</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title" data-aos="fade-up">Potrzebujesz profesjonalnych usług?</h2>
+                <p class="cta-text" data-aos="fade-up" data-aos-delay="100">Skontaktuj się z nami już dziś, aby omówić Twoje potrzeby i otrzymać bezpłatną wycenę. Nasi specjaliści są gotowi, aby pomóc Ci w realizacji Twojego projektu.</p>
+                <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#contact" class="btn btn-white">
+                        <i class="fas fa-phone-alt"></i> Zadzwoń do nas
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Wyślij wiadomość
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Kontakt</span>
+                <h2 class="section-title">Skontaktuj Się Z Nami</h2>
+                <p class="section-description">Jesteśmy do Twojej dyspozycji. Skontaktuj się z nami, aby omówić szczegóły współpracy lub uzyskać bezpłatną wycenę.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Adres</h3>
+                        <p>ul. Powietrzna 7</p>
+                        <p>56-400 Oleśnica</p>
+                        <p>woj. dolnośląskie</p>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Telefon</h3>
+                        <a href="tel:+48603282771">+48 603 282 771</a>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <a href="mailto:7grcjan@wp.pl">7grcjan@wp.pl</a>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Godziny pracy</h3>
+                        <p>Poniedziałek - Piątek: 8:00 - 18:00</p>
+                        <p>Sobota: 12:00 - 16:00</p>
+                        <p>Niedziela: Zamknięte</p>
+                    </div>
+                </div>
+                <div class="map-container" data-aos="fade-up">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2511.402307733839!2d17.3849849!3d51.2062649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc1a1b85f6c17%3A0x85c9d25e481d23a2!2sPowietrzna%207%2C%2056-400%20Ole%C5%9Bnica!5e0!3m2!1spl!2spl!4v1683025424396!5m2!1spl!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Grac<span>Instal</span></a>
+                    <p class="footer-text">
+                        Firma Gracinstal Gracjan Kuś i Michał Wichtowski S.C. specjalizuje się w kompleksowych usługach wodno-kanalizacyjnych na terenie Oleśnicy i całego województwa dolnośląskiego.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-wrapper">
+                    <h4 class="footer-heading">Szybkie Linki</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Strona główna</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> O nas</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Montaż urządzeń sanitarnych</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Udrażnianie kanalizacji</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Przyłącza wodno-kanalizacyjne</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Naprawy awarii</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Kontakt</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ul. Powietrzna 7, 56-400 Oleśnica</p>
+                    <p><i class="fas fa-phone-alt"></i> +48 603 282 771</p>
+                    <p><i class="fas fa-envelope"></i> 7grcjan@wp.pl</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 Gracinstal Gracjan Kuś i Michał Wichtowski S.C. | Wszystkie prawa zastrzeżone
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        // Initialize on document load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS (Animate On Scroll)
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: true,
+                offset: 100
+            });
+            
+            // Navigation toggle for mobile
+            const navToggle = document.getElementById('nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                document.body.classList.toggle('nav-open');
+                
+                // Change icon
+                const icon = navToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close mobile menu when clicking on links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('nav-open');
+                    
+                    // Reset icon
+                    const icon = navToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+            
+            // Sticky header
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                    document.querySelector('.back-to-top').classList.add('active');
+                } else {
+                    header.classList.remove('scrolled');
+                    document.querySelector('.back-to-top').classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const navHeight = document.querySelector('.header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Back to top button
+            document.querySelector('.back-to-top').addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
